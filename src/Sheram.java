@@ -1,34 +1,13 @@
-
 public class Sheram {
-
-	private static int x;
-	
-	private static long nextFieldValue;
-	private static int currentRowLength;
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		x = 0;
-		
-		currentRowLength = 0;
-		
-		nextFieldValue = 1;
-		
-		while (x < 3) {
-			
-			while (currentRowLength < 8) {
-				System.out.print(nextFieldValue + "		");
-				
-				nextFieldValue = nextFieldValue * 2;
-				
-				currentRowLength = currentRowLength + 1;
-			}
-			
-			System.out.println();
-			currentRowLength = 0;
-			x = x + 1;
-		}
-		
-	}
-
+    public static void main(String[] args) {
+        int loopEnd = 24;
+        String formatLength = "%" + (Integer.toString((int) Math.pow(2, loopEnd)).length() + 2) + "d";
+        for (int i = 1; i < loopEnd + 1; i++) {
+            String out = String.format(formatLength, (int) Math.pow(2, i));
+            if (i % 8 == 0) {
+                out += "\n";
+            }
+            System.out.print(out);
+        }
+    }
 }
